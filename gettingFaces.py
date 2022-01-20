@@ -1,10 +1,9 @@
-from turtle import width
 import cv2
 import os 
 import imutils
 
 namePersona = 'Yair'
-dataPath = r'C:\Users\gabri\OneDrive\Escritorio\YAIR\Face_RecognizerOpenCV'
+dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data'
 personPath = dataPath + '/' + namePersona
 
 if not os.path.exists(personPath):
