@@ -8,7 +8,7 @@ personPath = dataPath + '/' + namePersona
 
 if not os.path.exists(personPath):
     print ('Carpeta creada: ', personPath)
-    os.makedirs/personPath
+    os.makedirs(personPath)
 
 captura = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 #captura = cv2.VideoCapture('nombre del archivo.mp4')
