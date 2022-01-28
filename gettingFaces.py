@@ -1,3 +1,5 @@
+#se debe cambiar al ubicacion de la carpeta donde se encuentran  los programas
+#para poder crear la carpeta DATA donde se almacenaran
 import cv2
 import os 
 import imutils

@@ -10,6 +10,7 @@ import os
 
 from cv2 import INTER_CUBIC
 
+#***********************cambia la direccion por la ubicacion de la carpeta DATA en tu equipo
 dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data'
 imagePaths = os.listdir(dataPath)
 print ('imagePaths = ', imagePaths)

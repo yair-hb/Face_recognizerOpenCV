@@ -1,3 +1,4 @@
+#se debe cambiar la ubicacion a la de la carpeta DATA donde se encuentran la imagenes a entrenar el modelo
 import cv2
 import os 
 import numpy as np
