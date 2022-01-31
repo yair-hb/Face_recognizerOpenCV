@@ -15,18 +15,18 @@ dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data'
 imagePaths = os.listdir(dataPath)
 print ('imagePaths = ', imagePaths)
 
-face_recognizer = cv2.face.EigenFaceRecognizer_create()
-face_recognizer = cv2.face.FisherFaceRecognizer_create()
+#face_recognizer = cv2.face.EigenFaceRecognizer_create()
+#face_recognizer = cv2.face.FisherFaceRecognizer_create()
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 #se lee el modelo cerado para cada uno de los metodos
-face_recognizer.read('modeloEigenFace.xml')
-face_recognizer.read('modeloFisherFace.xml')
+#face_recognizer.read('modeloEigenFace.xml')
+#face_recognizer.read('modeloFisherFace.xml')
 face_recognizer.read('modeloLBPHFace.xml')
 
 #se hace la lectura ya sea de camara web o de algun video con los rostros 
 captura = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-captura = cv2.VideoCapture('video.mp4')
+#captura = cv2.VideoCapture('video.mp4')
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
 
@@ -61,15 +61,15 @@ while True:
         else:
             cv2.putText(frame,'Desconocido',(x,y-20),2,0.8,(0,0,255),1,cv2.LINE_AA)
             cv2.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),2)
-        
+        '''
         #LBPH Metod
         if resultado [1] < 70:
             cv2.putText(frame, '{}'.format(imagePaths[resultado[0]]),(x,y-25),2,1.1,(0,255,0),1,cv2.LINE_AA)
             cv2.rectangle(frame, (x,y),(x+w,y+h),(0,255,0),2)
         else:
-            cv2.putText(frame, 'Desconocido', (x,y-20),2,0.8(0,0,255),1,cv2.LINE_AA)
+            cv2.putText(frame, 'Desconocido', (x,y-20),2,0.8,(0,0,255),1,cv2.LINE_AA)
             cv2.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),2)
-        '''
+        
     cv2.imshow('Frame',frame)
     k =  cv2.waitKey(1)
     if k == 27:

@@ -19,7 +19,7 @@ for nameDir in listaPersonas:
         print('Rostros: ',nameDir + '/' + fileName)
         Etiquetas.append(Etiqueta)
         facesData.append(cv2.imread(personPath + '/'+ fileName,0))
-        #imagen = cv2.imread(personPath+ '/'+ filename,0)
+        #imagen = cv2.imread(personPath+ '/'+ fileName,0)
         #cv2.imshow('imagen',imagen)
         #cv2.waitKey(0)
     Etiqueta = Etiqueta +1
@@ -34,8 +34,6 @@ print ('Numero de etiquetas 1 :', np.count_nonzero(np.array(Etiquetas)==1))
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 print ('Entrenando Metodo...')
-print ('....................')
-print ('....................')
 print ('....................')
 face_recognizer.train(facesData, np.array(Etiquetas))
 

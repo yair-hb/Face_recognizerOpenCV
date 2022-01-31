@@ -4,7 +4,13 @@ import cv2
 import os 
 import imutils
 
-namePersona = 'Yair'
+#se crea la carpeta data que almacenara las capturas de los rostros 
+folder = 'data'
+if not os.path.exists(folder):
+    print ('Carpeta creada: ', folder)
+    os.makedirs(folder)
+
+namePersona = 'Persona 1' #se debe cambiar el nombre de la persona a la que se le hara la captura de rostro
 dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data'
 personPath = dataPath + '/' + namePersona
 
@@ -33,10 +39,9 @@ while True:
         rostro = cv2.resize(rostro,(150,150), interpolation=cv2.INTER_CUBIC)
         cv2.imwrite(personPath + '/rostro_{}.jpg'.format(contador),rostro)
         contador = contador +1
-    cv2.imshow('frame', frame)
-
+    cv2.imshow('Capturando rostro', frame)
     k = cv2.waitKey(1)
-    if k == 27 or contador >=300:
+    if k == 27 or contador >=400:
         break
 captura.release()
 cv2.destroyAllWindows()
