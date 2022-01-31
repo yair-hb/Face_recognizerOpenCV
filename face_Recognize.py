@@ -1,8 +1,6 @@
-#para poder usar este codigo se necesita
 #-----------ejecutar gettinFaces.py (captura las fotos de las personas a detectar)
 #-----------ejecutar Training.py (crea el modelo xml para el tipo de metodo a usar)
 #-----------ejecutar face_recognizer.py 
-#----------------------se debe seleccionar los metodos correctos para cada uno demlos modelos a trabajar
 #----------------------se habilita el condicionante con los parametros de deteccion correctos 
 
 import cv2
@@ -14,17 +12,18 @@ from cv2 import INTER_CUBIC
 dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data'
 imagePaths = os.listdir(dataPath)
 print ('imagePaths = ', imagePaths)
+print ('Rostros a encontrar:', imagePaths)
 
 #face_recognizer = cv2.face.EigenFaceRecognizer_create()
 #face_recognizer = cv2.face.FisherFaceRecognizer_create()
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-#se lee el modelo cerado para cada uno de los metodos
+#********************se lee el modelo cerado para cada uno de los metodos
 #face_recognizer.read('modeloEigenFace.xml')
 #face_recognizer.read('modeloFisherFace.xml')
 face_recognizer.read('modeloLBPHFace.xml')
 
-#se hace la lectura ya sea de camara web o de algun video con los rostros 
+#********************se hace la lectura ya sea de camara web o de algun video con los rostros 
 captura = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 #captura = cv2.VideoCapture('video.mp4')
 
@@ -45,6 +44,8 @@ while True:
         resultado = face_recognizer.predict(rostro)
 
         cv2.putText(frame , '{}'.format(resultado),(x,y-5),1,1.3,(255,255,0),1,cv2.LINE_AA)
+
+        #**************Elije cual es el metodo a usar para el reconocimiento de rostro
         '''
         #EigenFaces
         if resultado [1] <5700:
@@ -70,7 +71,7 @@ while True:
             cv2.putText(frame, 'Desconocido', (x,y-20),2,0.8,(0,0,255),1,cv2.LINE_AA)
             cv2.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),2)
         
-    cv2.imshow('Frame',frame)
+    cv2.imshow('Reconociendo rostros',frame)
     k =  cv2.waitKey(1)
     if k == 27:
         break

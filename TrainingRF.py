@@ -1,9 +1,9 @@
-#se debe cambiar la ubicacion a la de la carpeta DATA donde se encuentran la imagenes a entrenar el modelo
 import cv2
 import os 
 import numpy as np
+import time
 
-dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data'
+dataPath = 'C:/Users/gabri/OneDrive/Escritorio/YAIR/Face_RecognizerOpenCV/data' #se debe cambiar la ubicacion a la de la carpeta DATA
 listaPersonas =  os.listdir(dataPath)
 print ('Lista de Personas: ', listaPersonas)
 
@@ -35,7 +35,10 @@ face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 print ('Entrenando Metodo...')
 print ('....................')
+inicio = time.time()
 face_recognizer.train(facesData, np.array(Etiquetas))
+timeTrainig = time.time()-inicio
+print ('Tiempo de entrenamiento: ', timeTrainig)
 
 #almacenamos el modelo del entrenamiento creado
 #face_recognizer.write ('modeloEigenFace.xml')
